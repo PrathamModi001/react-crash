@@ -1,0 +1,16 @@
+.post{
+    background-color: rgb(168, 168, 168);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body{
+    background-color:rgb(72, 76, 80)
+}  
+
+.author{
+    font-weight: bold;
+    font-size: 1.2em;
+}
