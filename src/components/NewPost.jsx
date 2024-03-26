@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import classes from './NewPost.module.css';
 
-function NewPost(props) {
+function NewPost({ onCancel , onAddPost }) {
 
     const [body, setBodyChange] = useState('React.js is so awesome');
     const [author, setAuthorChange] = useState('Patel');
@@ -18,12 +19,14 @@ function NewPost(props) {
     const submitHandler = (event) => {
         event.preventDefault();
         const postData = {
+            id: uuidv4(), // Generate a unique identifier
             body: body,
             author: author,
         };
         console.log(postData);
+        onAddPost(postData)
         // call onCancel so that the modal will close
-        props.onCancel();
+        onCancel();
     }
 
     return (
@@ -39,7 +42,7 @@ function NewPost(props) {
                 <input type="text" id="name" required onChange={authorChangeHandler} />
             </p>
             <p className={classes.actions}>
-                <button type="button" onClick={props.onCancel}>Cancel</button>
+                <button type="button" onClick={onCancel}>Cancel</button>
                 <button type="submit">Add Post</button>
             </p>
         </form>

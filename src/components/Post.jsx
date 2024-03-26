@@ -5,7 +5,7 @@ function Post(props) {
     return(
         <li className={classes.post}>
             <p>{props.name}</p>
-            <p>{props.content}</p>
+            <p>{props.body}</p>
         </li>
     )
 }
